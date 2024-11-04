@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>My Portfolio Showcase Projects</title>
+    <link rel="styleSheet" href="styleSheet.css">
+    </head>
+    <body>
+        
+        <h1>Jerry Ginocchi's Portfolio Skills</h1>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="projectTimelines.html">Project timelines</a></li>
+            <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        
+        
+        
+        <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'Tab1')">Programming languages</button>
+      <button class="tablinks" onclick="openTab(event, 'Tab2')">Frameworks</button>
+      <button class="tablinks" onclick="openTab(event, 'Tab3')">soft skills</button>
+      <!--<button class="tablinks" onclick="openTab(event, 'Tab4')">JavaScript</button>
+      <button class="tablinks" onclick="openTab(event, 'Tab5')">Collabrative</button>
+      <button class="tablinks" onclick="openTab(event, 'Tab6')">My mom said I'm handsome</button>
+    </div>--->
+    
+    <div id="Tab1" class="tabcontent" style="display: block">
+        <h3>My programming Languages</h3>
+        <p><li>Python</li> <li>JavaScript</li><li>I'm learning HTML right now! look this is me learning!</li></p>
+        <div class="progress-container">
+            <progress class="progressBar active" id="myBar"max="100" value="0"></progress>
+          </div>
+        
+          <br>
+          <button onclick="move(50)">Click Me</button>
+    </div>
+    
+    <div id="Tab2" class="tabcontent">
+        <h3>My Frameworks</h3>
+        <p><li>Node.js</li><li>and more to come!</li></p>
+        <div class="progress-container">
+            <progress class="progressBar" id="myBar"max="100" value="0"></progress>
+          </div>
+        
+          <br>
+          <button onclick="move(50)">Click Me</button>
+    </div>
+    
+    <div id="Tab3" class="tabcontent">
+        <h3>My soft skills</h3>
+        <p><li>love collaborating</li><li>asking hopfully thought provoking questions</li><li>trying to find and solve the answer to questions that I previously didn't know the answers</li><li>hopefully being someone you'll love to work with</li></p>
+        <div class="progress-container">
+            <progress class="progressBar" id="myBar" max="100" value="0"></progress>
+          </div>
+        
+          <br>
+          <button onclick="move(80)">Click Me</button>
+    </div>
+
+    <!--<div id="Tab4" class="tabcontent">
+        <h3>My JavaScript skills</h3>
+        <p>I learned some JavaScript skills a few weeks ago its fun.</p>
+    </div>
+    
+    <div id="Tab5" class="tabcontent">
+        <h3>My Collabration skills</h3>
+        <p>I enjoy collabrating and working with people! They've said the same in most cases.</p>
+    </div>
+
+    <div id="Tab6" class="tabcontent">
+        <h3>My mom said I'm handsome</h3>
+        <p>I'm a family man I love my family, quality times with friends, and loved ones.</p>
+    </div>--->
+
+    <!--<div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>
+    
+      <br>
+      <button onclick="move()">Click Me</button>--->
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function move(percentage) {
+      var elem = document.getElementById("myBar");   
+      var width = 10;
+      var id = setInterval(frame, 100);
+      const progressBar = document.getElementById("myBar");
+        progressBar.value = percentage
+        /*var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";*/
+
+   function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+        } else {
+          width++; 
+          elem.style.width = width + '%';
+           
+        }
+      }
+      
+        
+    }
+//}
+   
+        </script>
+        </body>
+        </html>

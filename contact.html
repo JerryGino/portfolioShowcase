@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="styleSheet" href="styleSheet.css">
+</head>
+<body>
+
+    <h1>Jerry Ginocchi's Portfolio Contact</h1>
+
+    <ul class="nav-menu">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="projectTimelines.html">Project timelines</a></li>
+        <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+    <h2>Contact Form</h2>
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <span class="error" id="nameError">Name is required.</span><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br>
+        <span class="error" id="emailError">Valid email is required.</span><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div class="success" id="successMessage">Form submitted successfully!</div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Clear previous messages
+            document.getElementById('nameError').style.display = 'none';
+            document.getElementById('emailError').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            // Validate name
+            let isValid = true;
+            if (name === '') {
+                document.getElementById('nameError').style.display = 'inline';
+                isValid = false;
+            }
+
+            // Validate email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
+            if (email === '' || !emailPattern.test(email)) {
+                document.getElementById('emailError').style.display = 'inline';
+                isValid = false;
+            }
+
+            // If valid, show success message
+            if (isValid) {
+                document.getElementById('successMessage').style.display = 'block';
+                // Here you can proceed to submit the form data if necessary
+                // e.g., using fetch() to send data to a server
+            }
+        });
+    </script>
+</body>
+</html>
